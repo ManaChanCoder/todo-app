@@ -11,21 +11,22 @@ dotenv.config()
 
 // middleware
 app.use(express.json());
-const allowOrigin = [
+const allowedOrigins = [
   "https://todo-app-rose-omega.vercel.app",
-  "http://localhost:3000",
+  "http://localhost:1500", // optional: local dev
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowOrigin.includes(origin)) {
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.warn(`CORS Blocked: ${origin}`);
         callback(new Error("Not allowed by CORS"));
       }
     },
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
