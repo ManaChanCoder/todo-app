@@ -10,25 +10,16 @@ const app = express();
 dotenv.config()
 
 // middleware
-if (process.env.NODE_ENV === "development") {
-  app.use(cors({ origin: true, credentials: true }));
-} else if (process.env.NODE_ENV === "production") {
-  const allowOrigin = ["https://todo-app-rose-omega.vercel.app", "http://localhost:3000"];
+app.use(
+  cors({
+    origin: "*", // pwede muna lahat para sure (later limit mo sa Vercel domain lang)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin || allowOrigin.includes(origin)) {
-          callback(null, true);
-        } else {
-          console.warn(`CORS Blocked: ${origin}`);
-          callback(new Error("Not allowed by cors"));
-        }
-      },
-      credentials: true,
-    })
-  );
-}
+// optional pero minsan kailangan sa Render
+app.options("*", cors());
 app.use(express.json());
 
 // API Routes
