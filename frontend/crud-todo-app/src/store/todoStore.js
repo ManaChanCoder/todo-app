@@ -12,7 +12,7 @@ const todoStore = create((set, get) => ({
     set({ loading: true, error: null });
 
     try {
-      const res = await fetch(`${baseURL}`);
+      const res = await fetch(`${baseURL}/api/todos`);
 
       if (!res.ok) throw new Error("Failed to fetch todos.");
       const data = await res.json();
@@ -29,7 +29,7 @@ const todoStore = create((set, get) => ({
   createTodos: async (newTodo) => {
     set({ loading: true, error: null });
     try {
-      const res = await fetch(`${baseURL}`, {
+      const res = await fetch(`${baseURL}/api/todos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const todoStore = create((set, get) => ({
   updateTodos: async (id, updateTodo) => {
     set({ loading: true, error: null });
     try {
-      const res = await fetch(`${baseURL}/update/${id}`, {
+      const res = await fetch(`${baseURL}/api/todos/update/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const todoStore = create((set, get) => ({
     set({ loading: true, error: null });
 
     try {
-      const res = await fetch(`${baseURL}/delete/${id}`, {
+      const res = await fetch(`${baseURL}/api/todos/delete/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) {
