@@ -16,7 +16,7 @@ const Footer = () => {
       }`}
     >
       <h2 className="text-sm sm:text-xl tracking-wide">
-        <span>&copy;</span> 2025 ManachanCoder. All rights reserved.
+        <span>&copy;</span> 2025 Rhogenn Saingga. All rights reserved.
       </h2>
       <div className="flex gap-4">
         <a href="https://m.me/Rhogenn" target="_blank">
