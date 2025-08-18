@@ -19,7 +19,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   app.use(cors({ origin: true, credentials: true }));
 } else if (process.env.NODE_ENV === "production") {
-  const allowOrigin = ["sample1.com", "sample2.com"];
+  const allowOrigin = ["https://todo-app-rose-omega.vercel.app", "http://localhost:3000"];
 
   app.use(
     cors({
