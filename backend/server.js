@@ -7,26 +7,17 @@ import connectionDB from "./config/connectionDB.js";
 import todosRoute from "./routes/todosRoute.js";
 
 const app = express();
-dotenv.config({
-  path:
-    process.env.NODE_ENV === "production"
-      ? ".env.production"
-      : ".env.development",
-});
+dotenv.config()
 
 // middleware
 app.use(express.json());
-if (process.env.NODE_ENV === "development") {
-  app.use(cors({ origin: true, credentials: true }));
-} else if (process.env.NODE_ENV === "production") {
-  app.use(
-    cors({
-      origin: "https://todo-app-rose-omega.vercel.app",
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      credentials: true,
-    })
-  );
-}
+app.use(
+  cors({
+    origin: ["https://todo-app-rose-omega.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 
 // API Routes
