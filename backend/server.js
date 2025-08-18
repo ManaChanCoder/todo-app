@@ -19,22 +19,15 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   app.use(cors({ origin: true, credentials: true }));
 } else if (process.env.NODE_ENV === "production") {
-  const allowOrigin = ["https://todo-app-rose-omega.vercel.app", "http://localhost:3000"];
-
   app.use(
     cors({
-      origin: (origin, callback) => {
-        if (!origin || allowOrigin.includes(origin)) {
-          callback(null, true);
-        } else {
-          console.warn(`CORS Blocked: ${origin}`);
-          callback(new Error("Not allowed by cors"));
-        }
-      },
+      origin: "https://todo-app-rose-omega.vercel.app",
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       credentials: true,
     })
   );
 }
+
 
 // API Routes
 app.use("/api/todos", todosRoute);
