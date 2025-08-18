@@ -12,7 +12,7 @@ dotenv.config()
 // middleware
 app.use(express.json());
 const allowedOrigins = [
-  process.env.DOMAIN_URL,
+ "https://todo-app-rose-omega.vercel.app",
   "http://localhost:1500", // optional: local dev
 ];
 
