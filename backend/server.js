@@ -11,13 +11,27 @@ dotenv.config()
 
 // middleware
 app.use(express.json());
+const allowOrigin = [
+  "https://todo-app-rose-omega.vercel.app",
+  "http://localhost:3000",
+];
+
 app.use(
   cors({
-    origin: ["https://todo-app-rose-omega.vercel.app", "http://localhost:3000"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: (origin, callback) => {
+      if (!origin || allowOrigin.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.warn(`CORS Blocked: ${origin}`);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
+// handle preflight requests (OPTIONS)
+app.options("*", cors());
 
 
 // API Routes
