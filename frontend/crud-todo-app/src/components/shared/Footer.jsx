@@ -15,7 +15,7 @@ const Footer = () => {
         isDark ? "bg-deep-brown" : "bg-soft-red"
       }`}
     >
-      <h2 className="text-sm sm:text-xl tracking-wide">
+      <h2 className="text-xs sm:text-xl tracking-wide">
         <span>&copy;</span> 2025 Rhogenn Saingga. All rights reserved.
       </h2>
       <div className="flex gap-4">
