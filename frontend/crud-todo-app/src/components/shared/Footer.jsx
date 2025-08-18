@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="flex gap-4">
         <a href="https://m.me/Rhogenn" target="_blank">
           <FaFacebookMessenger
-            size={25}
+            size={20}
             className="cursor-pointer duration-200 ease-in-out hover:scale-90"
           />
         </a>
@@ -31,13 +31,13 @@ const Footer = () => {
           target="_blank"
         >
           <FaGithub
-            size={25}
+            size={20}
             className="cursor-pointer duration-200 ease-in-out hover:scale-90"
           />
         </a>
         <a href="https://www.facebook.com/Rhogenn" target="_blank">
           <FaFacebook
-            size={25}
+            size={20}
             className="cursor-pointer duration-200 ease-in-out hover:scale-90"
           />
         </a>
