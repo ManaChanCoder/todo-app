@@ -73,7 +73,7 @@ const Todo = () => {
 
   return (
     <div
-      className={`text-white h-full min-h-[448.5px] sm:min-h-[447.6px] px-5 pb-5 ${
+      className={`text-white px-5 pb-5 ${
         isDark ? "dark-chocolate" : ""
       }`}
     >
