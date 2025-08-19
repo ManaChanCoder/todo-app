@@ -7,7 +7,7 @@ import Footer from "./components/shared/Footer";
 
 const App = () => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-[500px]">
       <Navbar />
       <Todo />
       <Footer />
