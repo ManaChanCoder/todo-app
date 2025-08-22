@@ -14,7 +14,7 @@ const todoStore = create((set, get) => ({
     try {
       const res = await fetch(`${baseURL}/api/todos`);
 
-      if (!res.ok) throw new Error("Failed to fetch todos.");
+      if (!res.ok) throw new Error("Failed to fetch notes.");
       const data = await res.json();
       set({
         todos: data.data,
@@ -38,7 +38,7 @@ const todoStore = create((set, get) => ({
       });
 
       if (!res.ok) {
-        toast(res.message || "Failed to create todo.");
+        toast(res.message || "Failed to create note.");
         set({ loading: false });
         return false;
       }
@@ -67,12 +67,12 @@ const todoStore = create((set, get) => ({
       });
 
       if (!res.ok) {
-        toast(res.message || "Failed to update todo.");
+        toast(res.message || "Failed to update note.");
         set({ loading: false });
         return false;
       }
       const data = await res.json();
-      toast(data.message || "Todo update successfully");
+      toast(data.message || "Note update successfully");
       set((state) => {
         const updated = state.todos.map((todo) =>
           todo._id === id ? { _id: id, ...updateTodo } : todo
@@ -96,7 +96,7 @@ const todoStore = create((set, get) => ({
         method: "DELETE",
       });
       if (!res.ok) {
-        toast(res.message || "Failed to delete todo.");
+        toast(res.message || "Failed to delete note.");
         set({ loading: false });
         return false;
       }
