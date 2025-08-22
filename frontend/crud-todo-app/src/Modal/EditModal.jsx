@@ -13,7 +13,7 @@ const EditModal = ({ isOpen, isClose, title, children }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 backdrop-blur-sm flex justify-center items-center  ${
+      className={`fixed inset-0 z-50 backdrop-blur-sm flex justify-center items-center mx-1 ${
         isDark ? "bg-white/30 text-black" : "bg-black/30 text-white"
       }`}
     >
