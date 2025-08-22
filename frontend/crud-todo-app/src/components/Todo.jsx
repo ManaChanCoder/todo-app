@@ -82,10 +82,10 @@ const Todo = () => {
       <TodoModal
         isOpen={isOpenModal}
         isClose={toggleOpenModal}
-        title="Add New Todo"
+        title="Add New Note"
       >
         <div className="flex flex-col my-3">
-          <label htmlFor="">Todo name</label>
+          <label htmlFor="">Note name</label>
           <input
             type="text"
             name="todo"
@@ -128,10 +128,10 @@ const Todo = () => {
       <EditModal
         isOpen={isEditing !== null}
         isClose={closeEditModal}
-        title="Edit Todo"
+        title="Edit note"
       >
         <div className="flex flex-col my-3">
-          <label htmlFor="">Todo name</label>
+          <label htmlFor="">Note name</label>
           <input
             type="text"
             name="todo"
