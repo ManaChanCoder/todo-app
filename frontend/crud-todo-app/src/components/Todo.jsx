@@ -15,6 +15,7 @@ const Todo = () => {
     modalOpenner();
   const {
     todos,
+    loading,
     filteredTodos,
     getTodos,
     createTodos,
@@ -200,6 +201,15 @@ const Todo = () => {
           </div>
         ) : (
           <div className="flex justify-center items-center w-full h-64">
+            {loading ? (
+            <p
+              className={`text-2xl text-center ${
+                isDark ? "text-white" : "text-black"
+              }`}
+            >
+              Loading...
+            </p>
+            ):(
             <p
               className={`text-2xl text-center ${
                 isDark ? "text-white" : "text-black"
@@ -207,6 +217,7 @@ const Todo = () => {
             >
               No Data Found
             </p>
+            )}
           </div>
         )}
       </div>
