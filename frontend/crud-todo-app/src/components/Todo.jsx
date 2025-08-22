@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./main.css";
+import SpinnerLoading from "../../public/spin-loader.svg";
 
 // store & components & toastify
 import { themeStore, modalOpenner } from "../store/manyStore";
@@ -73,11 +74,7 @@ const Todo = () => {
   };
 
   return (
-    <div
-      className={`text-white px-5 pb-5 ${
-        isDark ? "dark-chocolate" : ""
-      }`}
-    >
+    <div className={`text-white px-5 pb-5 ${isDark ? "dark-chocolate" : ""}`}>
       <ToastContainer />
       {/* Add Todo */}
       <TodoModal
@@ -202,21 +199,21 @@ const Todo = () => {
         ) : (
           <div className="flex justify-center items-center w-full h-64">
             {loading ? (
-            <p
-              className={`text-2xl text-center ${
-                isDark ? "text-white" : "text-black"
-              }`}
-            >
-              Loading...
-            </p>
-            ):(
-            <p
-              className={`text-2xl text-center ${
-                isDark ? "text-white" : "text-black"
-              }`}
-            >
-              No Data Found
-            </p>
+              <p
+                className={`text-2xl text-center ${
+                  isDark ? "text-white" : "text-black"
+                }`}
+              >
+                <img src={SpinnerLoading} alt="Loading..." />
+              </p>
+            ) : (
+              <p
+                className={`text-2xl text-center ${
+                  isDark ? "text-white" : "text-black"
+                }`}
+              >
+                No Data Found
+              </p>
             )}
           </div>
         )}
