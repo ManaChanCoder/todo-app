@@ -22,7 +22,7 @@ export const createTodo = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Todo saved successfully!",
+      message: "Note saved successfully!",
       data: newTodo,
     });
   } catch (error) {
@@ -41,7 +41,7 @@ export const updateTodo = async (req, res) => {
     if (!updateItem)
       return res
         .status(400)
-        .json({ success: false, message: "Todo not found" });
+        .json({ success: false, message: "Note not found" });
 
     res
       .status(200)
@@ -57,7 +57,7 @@ export const deleteTodo = async (req, res) => {
     if (!deleteID)
       return res
         .status(404)
-        .json({ success: false, message: "Todo not found to delete." });
+        .json({ success: false, message: "Note not found to delete." });
 
     res.status(200).json({ success: true, message: "Delete successfully!" });
   } catch (error) {
