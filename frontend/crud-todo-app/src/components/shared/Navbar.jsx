@@ -21,7 +21,7 @@ const Navbar = () => {
         isDark ? "bg-deep-brown" : "bg-soft-red"
       }`}
     >
-      <h2 className="text-3xl">Bible Note</h2>
+      <h2 className="text-2xl sm:text-3xl">Bible Note</h2>
       <div className="flex gap-3">
         <MdOutlineAddBox
           onClick={toggleOpenModal}
