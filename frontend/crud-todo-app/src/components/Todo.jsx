@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./main.css";
-import SpinnerLoading from "../../public/spin-loader.svg";
+import SpinnerLoading from "../../public/spinner-loader.svg";
 
 // store & components & toastify
 import { themeStore, modalOpenner } from "../store/manyStore";
