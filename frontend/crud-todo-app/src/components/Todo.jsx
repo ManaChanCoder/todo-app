@@ -101,6 +101,7 @@ const Todo = () => {
             value={newTodo.description}
             onChange={handleOnChange}
             onKeyDown={enterKey}
+rows={5}
             className={`w-full px-2 py-1 mt-2.5 outline-none rounded-sm ${
               isDark ? "bg-white text-black" : "bg-cyan-100 text-black"
             }`}
