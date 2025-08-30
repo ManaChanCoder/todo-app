@@ -147,6 +147,7 @@ rows={5}
             name="description"
             value={newTodo.description}
             onChange={handleOnChange}
+rows={5}
             onKeyDown={(e) => {
               if (e.key === "Enter") updateItem();
             }}
