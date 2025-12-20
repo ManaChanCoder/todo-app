@@ -2,7 +2,7 @@ import Todos from "../model/todosSchema.js";
 
 export const getTodos = async (req, res) => {
   try {
-    const todos = await Todos.find();
+    const todos = await Todos.find().sort(-1);
 
     res.status(200).json({ data: todos });
   } catch (error) {
