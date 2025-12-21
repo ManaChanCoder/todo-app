@@ -45,7 +45,7 @@ const todoStore = create((set, get) => ({
       const data = await res.json();
       toast("Note saved successfully.");
       set((state) => ({
-        todos: [...state.todos, data.data],
+        todos: [newTodo, ...state.todos],
         filteredTodos: [...state.todos, data.data],
         loading: false,
         error: null,
