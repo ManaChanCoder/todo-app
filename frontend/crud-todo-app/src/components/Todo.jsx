@@ -75,7 +75,7 @@ const Todo = () => {
 
   return (
     <div className={`text-white px-5 pb-5 ${isDark ? "dark-chocolate" : ""}`}>
-      <ToastContainer />
+      <ToastContainer autoClose={1000} />
       {/* Add Todo */}
       <TodoModal
         isOpen={isOpenModal}
