@@ -44,8 +44,8 @@ const todoStore = create((set, get) => ({
       }
       const data = await res.json();
       set((state) => ({
-        todos: [newTodo, ...state.todos],
-        filteredTodos: [...state.todos, data.data],
+        todos: [data.data, ...state.todos],
+        filteredTodos: [data.data, ...state.todos],
         loading: false,
         error: null,
       }));
