@@ -9,7 +9,9 @@ const TodosSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+},
+
+{timestamp: true});
 const Todos = mongoose.model("Todo", TodosSchema);
 
 export default Todos;
