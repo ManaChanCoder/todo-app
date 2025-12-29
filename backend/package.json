@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development nodemon server.js",
@@ -17,6 +17,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^17.2.1",
     "express": "^4.19.2",
-    "mongoose": "^8.17.1"
+    "mongoose": "^8.17.1",
+    "nodemon": "^3.1.11"
   }
 }

@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+dotenv.config();
 
 // components
 import connectionDB from "./config/connectionDB.js";
 import todosRoute from "./routes/todosRoute.js";
 
 const app = express();
-dotenv.config()
 
 // middleware
 app.use(

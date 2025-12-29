@@ -9,11 +9,18 @@ import TodoModal from "../Modal/TodoModal";
 import todoStore from "../store/todoStore";
 import { ToastContainer } from "react-toastify";
 import EditModal from "../Modal/EditModal";
+import ViewNote from "../Modal/ViewNote";
 
 const Todo = () => {
   const isDark = themeStore((state) => state.isDark);
-  const { isOpenModal, toggleOpenModal, isEditing, closeEditModal } =
-    modalOpenner();
+  const {
+    isOpenModal,
+    toggleOpenModal,
+    isEditing,
+    closeEditModal,
+    isViewing,
+    closeViewModal,
+  } = modalOpenner();
   const {
     todos,
     loading,
@@ -27,6 +34,7 @@ const Todo = () => {
     todo: "",
     description: "",
   });
+  const currentTodo = todos.find((t) => t._id === isViewing);
 
   useEffect(() => {
     getTodos();
@@ -101,7 +109,7 @@ const Todo = () => {
             value={newTodo.description}
             onChange={handleOnChange}
             onKeyDown={enterKey}
-rows={5}
+            rows={5}
             className={`w-full px-2 py-1 mt-2.5 outline-none rounded-sm ${
               isDark ? "bg-white text-black" : "bg-cyan-100 text-black"
             }`}
@@ -147,7 +155,7 @@ rows={5}
             name="description"
             value={newTodo.description}
             onChange={handleOnChange}
-rows={5}
+            rows={5}
             onKeyDown={(e) => {
               if (e.key === "Enter") updateItem();
             }}
@@ -172,6 +180,15 @@ rows={5}
           </button>
         </div>
       </EditModal>
+
+      {currentTodo && (
+        <ViewNote
+          isOpen={isViewing !== null}
+          isClose={closeViewModal}
+          title={currentTodo.todo}
+          description={currentTodo.description}
+        />
+      )}
 
       {todos.length > 0 ? (
         <div className="flex justify-center w-full pt-5">
@@ -206,7 +223,11 @@ rows={5}
                   isDark ? "text-white" : "text-black"
                 }`}
               >
-                <img src={SpinnerLoading} alt="Loading..." />
+                <img
+                  src={SpinnerLoading}
+                  alt="Loading..."
+                  className="h-25 w-25"
+                />
               </p>
             ) : (
               <p

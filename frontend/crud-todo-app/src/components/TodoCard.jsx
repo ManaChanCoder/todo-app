@@ -1,5 +1,6 @@
 import Reac from "react";
 import "./main.css";
+import { wordTrim } from "../utils/helpers";
 
 // icons
 import { MdModeEdit, MdDelete } from "react-icons/md";
@@ -7,11 +8,12 @@ import { MdModeEdit, MdDelete } from "react-icons/md";
 // component & store
 import { themeStore, modalOpenner } from "../store/manyStore";
 import todoStore from "../store/todoStore";
+import ViewNote from "../Modal/ViewNote";
 
 const TodoCard = (props) => {
   const isDark = themeStore((state) => state.isDark);
   const { todo, description, id } = props;
-  const { openEditModal } = modalOpenner();
+  const { openEditModal, viewNoteModal } = modalOpenner();
   const deleteTodos = todoStore((state) => state.deleteTodos);
 
   const deleteItem = async (id) => {
@@ -20,12 +22,13 @@ const TodoCard = (props) => {
 
   return (
     <div
+      onClick={() => viewNoteModal(id)}
       className={`flex flex-col h-full justify-between px-5 py-3 text-center rounded-lg duration-150 sm:hover:scale-y-95 hover:scale-x-95 ${
         isDark ? "bg-charcoal shadow-xl" : "shadow-xl bg-brick-red text-black"
       }`}
     >
       <h1 className="text-xl font-semibold tracking-wider mb-3">{todo}</h1>
-      <p className="tracking-wide text-base">{description}</p>
+      <p className="tracking-wide text-base">{wordTrim(description, 250)}</p>
 
       <div className="mt-3 flex justify-end gap-3">
         <MdModeEdit

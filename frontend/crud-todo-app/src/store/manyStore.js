@@ -17,10 +17,13 @@ export const themeStore = create(
 export const modalOpenner = create((set) => ({
   isOpenModal: false,
   isEditing: null,
+  isViewing: null,
 
   toggleOpenModal: () => set((state) => ({ isOpenModal: !state.isOpenModal })),
   openEditModal: (id) => set(() => ({ isEditing: id })),
+  viewNoteModal: (id) => set(() => ({ isViewing: id })),
   closeEditModal: () => set(() => ({ isEditing: null })),
+  closeViewModal: () => set(() => ({ isViewing: null })),
 }));
 
 export const editValueStore = create((set) => ({
